@@ -205,16 +205,16 @@ function restartGame() {
 init();
 
 // Music Controls
-const bgMusic = document.getElementById('bgMusic');
+const backgroundMusic = document.querySelector('.background-music');
 const musicToggle = document.getElementById('musicToggle');
-let isMusicPlaying = false;
+let isMusicPlaying = true;  // Set to true since music starts automatically
 
 musicToggle.addEventListener('click', () => {
     if (isMusicPlaying) {
-        bgMusic.pause();
+        backgroundMusic.pause();
         musicToggle.textContent = '🔈 Music';
     } else {
-        bgMusic.play();
+        backgroundMusic.play();
         musicToggle.textContent = '🔊 Music';
     }
     isMusicPlaying = !isMusicPlaying;
