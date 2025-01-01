@@ -33,12 +33,66 @@ highScoreElement.textContent = highScore;
 // Initialize game
 function init() {
     document.addEventListener('keydown', handleKeyPress);
+    // Add touch controls
+    setupMobileControls();
     gameLoop = setInterval(update, GAME_SPEED);
     // Start background music when game starts
     const backgroundMusic = document.querySelector('.background-music');
-    backgroundMusic.volume = 0.3;  // Lower volume for background music
+    backgroundMusic.volume = 0.3;
     backgroundMusic.play();
 }
+
+// Setup mobile controls
+function setupMobileControls() {
+    const controls = document.querySelectorAll('.control-btn');
+    controls.forEach(button => {
+        button.addEventListener('click', () => {
+            const newDirection = button.dataset.direction;
+            switch(newDirection) {
+                case 'up':
+                    if (direction !== 'down') {
+                        direction = 'up';
+                        moveSound.play();
+                    }
+                    break;
+                case 'down':
+                    if (direction !== 'up') {
+                        direction = 'down';
+                        moveSound.play();
+                    }
+                    break;
+                case 'left':
+                    if (direction !== 'right') {
+                        direction = 'left';
+                        moveSound.play();
+                    }
+                    break;
+                case 'right':
+                    if (direction !== 'left') {
+                        direction = 'right';
+                        moveSound.play();
+                    }
+                    break;
+            }
+        });
+    });
+}
+
+// Update canvas size based on screen size
+function resizeCanvas() {
+    const canvas = document.getElementById('gameCanvas');
+    if (window.innerWidth <= 768) {
+        canvas.style.width = '300px';
+        canvas.style.height = '300px';
+    } else {
+        canvas.style.width = '600px';
+        canvas.style.height = '600px';
+    }
+}
+
+// Call resize function on load and window resize
+window.addEventListener('load', resizeCanvas);
+window.addEventListener('resize', resizeCanvas);
 
 // Main game update function
 function update() {
