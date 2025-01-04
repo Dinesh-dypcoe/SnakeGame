@@ -30,7 +30,7 @@ This game is built using **HTML**, **CSS**, and **JavaScript**, and it provides 
 
 ## 🌐 Live Demo
 You can play the **Responsive Snake Game** here:  
-[**Play Snake Game**](https://snake-game-two-smoky.vercel.app/) (Link to be updated)
+[**Play Snake Game**](https://snake-game-two-smoky.vercel.app/) 
 
 ## 🚀 Getting Started
 To run the **Responsive Snake Game** locally, follow these steps:
